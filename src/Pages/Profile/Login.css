@@ -1,0 +1,114 @@
+.app {
+  background-color: transparent;
+}
+.loginScreen {
+  position: relative;
+  height: 100%;
+  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/d54727b4-2ad9-4e71-bb48-0899f55f103a/0c3d0a17-6ca8-48f4-94bc-4bf365cf563b/VN-vi-20230220-popsignuptwoweeks-perspective_alpha_website_medium.jpg")
+    center no-repeat;
+  background-size: cover;
+}
+
+.loginScreen__background {
+  /* background-position: center center; */
+  object-fit: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+.loginScreen__logo {
+  position: fixed;
+  left: 0;
+  width: 150px;
+  object-fit: contain;
+  padding-left: 20px;
+}
+
+.btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.loginScreen__button {
+  cursor: pointer;
+  background-color: transparent;
+  margin-right: 20px;
+  padding: 10px 20px;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  color: white;
+}
+
+.loginScreen__button:nth-child(2) {
+  border: none;
+  background-color: #e50914;
+}
+
+.loginScreen__gradient {
+  height: 100vh;
+  z-index: 1;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6881127450980392) 0%,
+    rgba(39, 40, 41, 0.5088410364145659) 100%,
+    rgba(118, 103, 196, 0.39959733893557425) 100%
+  );
+}
+
+.loginScreen__body {
+  position: absolute;
+  color: #fff;
+  top: 40%;
+  z-index: 1;
+  margin: 0 120px;
+  text-align: center;
+  left: 0;
+  right: 0;
+}
+
+.loginScreen__body > h1 {
+  font-size: 46px;
+  margin-bottom: 24px;
+}
+
+.loginScreen__body > h2 {
+  font-weight: 400;
+  font-size: 26px;
+  margin-bottom: 24px;
+}
+
+.loginScreen__body > p {
+  font-weight: 500;
+  font-size: 18px;
+}
+.loginScreen__input > form > input {
+  outline-width: 0;
+  margin-top: 10px;
+  padding: 10px;
+  height: 30px;
+  border: none;
+  font-size: 16px;
+  /* max-width: 600px; */
+  width: 40%;
+}
+
+.loginScreen__input > form > button {
+  cursor: pointer;
+}
+
+.loginScreen__getStarted {
+  padding: 16px 30px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  border: none;
+  background-color: #e50914;
+}
+
+/* .loginScreen__getStarted > svg {
+  font-size: 10px;
+} */

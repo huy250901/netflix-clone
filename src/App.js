@@ -1,20 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
+import HomeScreen from "./Pages/HomeScreen";
+import ProfileScreen from "./Pages/Profile/ProfileScreen";
+import Login from "./Pages/Profile/Login";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { auth } from "./firebase";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "./features/counter/userSlice";
 import "./App.css";
-import HomeScreen from "./HomeScreen";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-  // console.log(axios(requests.fetchActionMovies);
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        dispatch(
+          login({
+            uid: userAuth.uid,
+            email: userAuth.email,
+          })
+        );
+      } else {
+        dispatch(logout());
+      }
+    });
+    return unsubscribe;
+  }, [dispatch]);
+
   return (
     <div className="app">
-      <HomeScreen />
-      {/* <Router>
-        <Routes>
-          <Route path="/a">
-            <h1>332</h1>
-          </Route>
-        </Routes>
-      </Router> */}
+      <BrowserRouter>
+        {!user ? (
+          <Login />
+        ) : (
+          <Routes>
+            <Route path="/" element={<HomeScreen />} />
+            <Route path="/profile" element={<ProfileScreen />} />
+          </Routes>
+        )}
+      </BrowserRouter>
     </div>
   );
 }
